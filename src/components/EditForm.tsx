@@ -56,19 +56,19 @@ const EditForm = () => {
 
       case "lat":
       case "lng":
-        if (formData.address) {
-          setFormData({
-            ...formData,
-            address: {
-              ...formData.address,
-              geo: {
-                ...formData.address.geo,
-                [field]: value,
-              },
+        if (!formData.address) break;
+
+        setFormData({
+          ...formData,
+          address: {
+            ...formData.address,
+            geo: {
+              ...formData.address.geo,
+              [field]: value,
             },
-          });
-          break;
-        }
+          },
+        });
+        break;
       case "companyName":
         setFormData({
           ...formData,
